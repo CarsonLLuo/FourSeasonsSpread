@@ -138,31 +138,31 @@
 
 **推荐方式 - Web应用（最佳体验）**：
 ```bash
-cd 四季牌阵
+cd (yourfolder)
 streamlit run streamlit_app.py
 ```
 
 **指定端口启动**：
 ```bash
-cd 四季牌阵
+cd (yourfolder)
 streamlit run streamlit_app.py --server.port 8501
 ```
 
 **备用启动器**：
 ```bash
-cd 四季牌阵
+cd (yourfolder)
 python run_streamlit.py
 ```
 
 **传统命令行版本**：
 ```bash
-cd 四季牌阵
+cd (yourfolder)
 python 四季牌阵.py
 ```
 
 **桌面GUI应用（备用）**：
 ```bash
-cd 四季牌阵
+cd (yourfolder)
 python tarot_gui_fixed.py
 ```
 
@@ -199,10 +199,6 @@ AI分析功能由aihubmix提供支持，包括：
 - **💡 核心洞察**：一句话概括牌阵的核心信息
 - **🌟 季节建议**：针对各个生活层面的实用指导
 
-支持的AI模型：
-- gpt-3.5-turbo（推荐，速度快）
-- gpt-4（更深度，但较慢）
-- gpt-4-turbo-preview（平衡选择）
 
 ### 输出示例
 
@@ -326,7 +322,7 @@ AI分析功能由aihubmix提供支持，包括：
    ```
 
 4. **开始占卜**：
-   - 应用会在浏览器中自动打开（http://localhost:8501）
+   - 应用会在浏览器中自动打开
    - 点击醒目的红色"🔮 开始抽取四季牌阵 🔮"按钮
    - 系统将一次性抽取全部5张牌并显示在牌阵中
    - （可选）在侧边栏配置aihubmix API密钥以使用AI分析功能
@@ -340,6 +336,8 @@ AI分析功能由aihubmix提供支持，包括：
 2. 注册并登录账户  
 3. 在API管理页面生成密钥
 4. 在应用中配置密钥
+
+其实也可以用其他的api
 
 ## 📊 更新日志
 
@@ -379,11 +377,7 @@ AI分析功能由aihubmix提供支持，包括：
 - AI分析结果仅供参考，不构成人生决策的绝对依据
 - 建议将占卜结果作为内在智慧的启发工具
 
-## 🙏 致谢
 
-感谢塔罗师Marcia Masino的《Best Tarot Practices》为四季牌阵提供了理论基础，感谢aihubmix平台提供的AI技术支持。
-
----
 
 ✨ 愿塔罗牌的智慧为你的人生旅程带来启发和指引！ 🔮✨
 
