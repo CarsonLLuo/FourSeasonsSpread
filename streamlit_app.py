@@ -156,8 +156,6 @@ class StreamlitTarotApp:
             st.session_state.api_configured = Config.is_configured()
         if 'analysis_results' not in st.session_state:
             st.session_state.analysis_results = None
-        if 'user_question' not in st.session_state:
-            st.session_state.user_question = ""
     
     def safe_rerun(self):
         """安全的重新运行方法，兼容不同版本的Streamlit"""
@@ -404,16 +402,6 @@ class StreamlitTarotApp:
             else:
                 st.info("💡 可以进行AI智能分析，或重新抽牌开始新的占卜")
         
-        # 可选的用户问题输入（折叠状态）
-        with st.expander("🤔 想要针对特定问题占卜？（可选）", expanded=False):
-            user_question = st.text_area(
-                "输入你的具体问题",
-                value=st.session_state.user_question,
-                height=80,
-                help="如果有特定问题，AI分析时会结合你的问题给出更精准的建议",
-                placeholder="例如：我在感情方面应该注意什么？"
-            )
-            st.session_state.user_question = user_question
     
     def draw_cards(self):
         """抽取四季牌阵"""
@@ -487,7 +475,7 @@ class StreamlitTarotApp:
                 # 获取分析结果
                 analysis_result = self.analyzer.analyze_reading(
                     st.session_state.current_reading, 
-                    st.session_state.user_question
+                    None  # 不再支持用户自定义问题
                 )
                 
                 insight = self.analyzer.get_quick_insight(st.session_state.current_reading)
@@ -562,9 +550,6 @@ class StreamlitTarotApp:
 3号位置 (理性思维): {reading[3].name}
 4号位置 (事业财务): {reading[4].name}
 5号位置 (灵性成长): {reading[5].name}
-
-=== 用户问题 ===
-{st.session_state.user_question if st.session_state.user_question else '无'}
 
 === 核心洞察 ===
 {results['insight']}
