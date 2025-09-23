@@ -93,13 +93,6 @@ st.markdown("""
         font-weight: bold;
     }
     
-    .analysis-section {
-        background: white;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        margin: 1rem 0;
-    }
     
     /* 增强抽牌按钮样式 */
     .stButton > button[kind="primary"] {
@@ -510,19 +503,13 @@ class StreamlitTarotApp:
         tab1, tab2, tab3 = st.tabs(["📝 详细分析", "💡 核心洞察", "🌟 季节建议"])
         
         with tab1:
-            st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
             st.write(results['full_analysis'])
-            st.markdown('</div>', unsafe_allow_html=True)
         
         with tab2:
-            st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
             st.info(f"✨ {results['insight']}")
-            st.markdown('</div>', unsafe_allow_html=True)
         
         with tab3:
-            st.markdown('<div class="analysis-section">', unsafe_allow_html=True)
             st.write(results['seasonal_advice'])
-            st.markdown('</div>', unsafe_allow_html=True)
         
         # 显示分析时间
         st.caption(f"分析时间: {results['timestamp'].strftime('%Y-%m-%d %H:%M:%S')}")

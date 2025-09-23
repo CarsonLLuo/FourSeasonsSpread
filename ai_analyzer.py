@@ -116,35 +116,35 @@ class TarotAIAnalyzer:
         
         return "\n".join(card_info)
     
-    def analyze_reading(self, reading: Dict[int, Card], user_question: str = "") -> Dict[str, str]:
+    def analyze_reading(self, reading: Dict[int, Card], user_question: str = None) -> Dict[str, str]:
         """
         分析四季牌阵并生成详细解读
         
         Args:
             reading: 抽牌结果字典
-            user_question: 用户的具体问题（可选）
+            user_question: 用户的具体问题（已弃用，保留参数兼容性）
             
         Returns:
             包含各种分析结果的字典
         """
         cards_text = self._format_cards_for_prompt(reading)
         
-        # 构建分析提示词
-        question_part = f"\n\n咨询者的问题：{user_question}" if user_question.strip() else ""
+        # 构建分析提示词（不再包含用户问题）
+        question_part = ""
         
         prompt = f"""请对以下四季牌阵进行深度分析：
 
-{cards_text}{question_part}
+{cards_text}
 
-请从以下几个方面进行分析：
+请从以下几个方面分析接下来季节的能量流动：
 
-1. 整体概述：这个牌阵传达的核心信息和主要主题
-2. 逐位解读：每个位置的牌面含义及其对应生活层面的指导
-3. 牌面关联：不同位置之间的相互关系和能量流动
+1. 整体概述：这个牌阵传达的核心信息和季节主题
+2. 逐位解读：每个位置的牌面含义及其对应生活层面的能量指导
+3. 牌面关联：不同位置之间的相互关系和能量流动模式
 4. 实用建议：基于牌阵给出的具体行动建议和注意事项
 5. 灵性指引：这个季度的精神成长方向和内在智慧
 
-请用专业而温暖的语言，为咨询者提供富有启发性的指导。"""
+请用专业而温暖的语言，为咨询者提供富有启发性的季节性指导。"""
 
         # 调用AI获取分析结果
         analysis = self._make_api_request(prompt)
