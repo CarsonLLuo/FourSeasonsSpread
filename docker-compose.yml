@@ -1,4 +1,4 @@
-version: '3.8'
+name: tarot-ai-system
 
 services:
   # 后端API服务
